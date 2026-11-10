@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentation · MergeDesk</title>
+  <meta name="description" content="How to install and use MergeDesk for Jira Service Management: merging requests, quiet close, reply forwarding, undo, the duplicate guard and settings.">
+  <link rel="canonical" href="https://mergedesk.findigo.in/docs/">
+  <meta property="og:title" content="MergeDesk documentation">
+  <meta property="og:description" content="Install MergeDesk and merge your first duplicate requests in Jira Service Management.">
+  <meta property="og:image" content="https://mergedesk.findigo.in/assets/og.png">
+  <meta name="theme-color" content="#090b12">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script>try{var t=localStorage.getItem('md-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script defer src="/assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="30" height="30">MergeDesk</a>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/docs/" aria-current="page">Docs</a>
+      <a href="/support/">Support</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark"><svg class="icon moon" aria-hidden="true"><use href="/assets/icons.svg#moon"/></svg><svg class="icon sun" aria-hidden="true"><use href="/assets/icons.svg#sun"/></svg></button>
+      <a class="btn btn-primary btn-sm" href="https://marketplace.atlassian.com/search?query=MergeDesk">Get MergeDesk</a>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumbs"><a href="/">MergeDesk</a> / Documentation</div>
+      <h1>Documentation</h1>
+      <p>Everything about merging requests with MergeDesk: from your first merge to the duplicate guard and every setting.</p>
+    </div>
+  </div>
+
+  <div class="container doc-layout">
+    <aside class="doc-nav" aria-label="Documentation sections">
+      <label class="search"><span class="sr-only">Search the docs</span><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#search"/></svg><input type="search" placeholder="Search the docs"></label>
+      <h5>Start here</h5>
+      <ul>
+        <li><a href="#getting-started">Getting started</a></li>
+        <li><a href="#merge">Merge requests</a></li>
+        <li><a href="#what-moves">What a merge does</a></li>
+      </ul>
+      <h5>How it works</h5>
+      <ul>
+        <li><a href="#quiet-close">Quiet close</a></li>
+        <li><a href="#forwarding">Reply forwarding</a></li>
+        <li><a href="#undo">Undo</a></li>
+        <li><a href="#guard">Duplicate guard</a></li>
+      </ul>
+      <h5>For admins</h5>
+      <ul>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#history">History and CSV</a></li>
+        <li><a href="#permissions">Permissions</a></li>
+        <li><a href="#limits">Limits</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#uninstall">Uninstalling</a></li>
+      </ul>
+      <div class="empty">No matching sections.</div>
+    </aside>
+
+    <article class="prose">
+      <section id="getting-started">
+        <h2>Getting started</h2>
+        <p>MergeDesk works in every Jira Service Management project as soon as it's installed. There's nothing to configure before your first merge.</p>
+        <ol class="steps-list">
+          <li><strong>Install it.</strong> A Jira admin installs MergeDesk from the <a href="https://marketplace.atlassian.com/search?query=MergeDesk">Atlassian Marketplace</a>. Every site gets a 30-day free trial, and sites with up to 10 users don't pay.</li>
+          <li><strong>Open any service request.</strong> You'll find <strong>Merge duplicates</strong> in the request's <strong>•••</strong> menu, and a <strong>Duplicates</strong> panel in the right-hand column.</li>
+          <li><strong>Optional: check the settings.</strong> Jira admins can open <strong>Settings (⚙) → Marketplace apps → MergeDesk</strong> to choose projects, emails and duplicate rules.</li>
+        </ol>
+        <div class="callout tip"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#bulb"/></svg><p>The defaults are chosen to be safe: duplicates close without emailing the customer, copied comments are internal notes, and a matching subject on its own only ever suggests a merge.</p></div>
+      </section>
+
+      <section id="merge">
+        <h2>Merge requests</h2>
+        <h3>From the Merge duplicates window</h3>
+        <ol class="steps-list">
+          <li>Open the request you want to <strong>keep</strong>, then choose <strong>••• → Merge duplicates</strong>.</li>
+          <li>Tick the requests to merge into it. MergeDesk lists <strong>Likely duplicates</strong> it found and the customer's <strong>other open requests</strong>. To add any other request, search by its key (for example <code>SUP-12</code>) or by words from its summary.</li>
+          <li>Click <strong>Review merge</strong>. MergeDesk shows how many comments, files, people and organizations will move, plus any warnings, such as requests from different customers or in different projects. If a duplicate has a different <strong>priority</strong>, <strong>assignee</strong> or <strong>due date</strong>, you choose which value to keep (see <a href="#fields">Fields that differ</a>).</li>
+          <li>Click <strong>Merge</strong>. The merge runs in the background, so you can close the window. Big requests can take a minute.</li>
+        </ol>
+        <h3>From the Duplicates panel</h3>
+        <p>When the <a href="#guard">duplicate guard</a> thinks a request repeats an earlier one, the panel shows <strong>Possible duplicate of SUP-12</strong> with the reason. Click <strong>Merge into SUP-12</strong> to merge it straight away.</p>
+        <h3>Merge this request into another</h3>
+        <p>At the bottom of the Merge duplicates window, enter another request's key under <strong>Or merge SUP-14 into another request</strong>. Use this when you're looking at the duplicate rather than the request you want to keep.</p>
+      </section>
+
+      <section id="what-moves">
+        <h2>What a merge does</h2>
+        <p>Everything below is copied into the request you keep. Each item can be switched off in the <a href="#settings">settings</a>.</p>
+        <table>
+          <thead><tr><th>From the duplicate</th><th>In the request you keep</th></tr></thead>
+          <tbody>
+            <tr><td>Description</td><td>Added as a comment headed “Merged from SUP-14”, with the original summary, who raised it and when.</td></tr>
+            <tr><td>Comments and internal notes</td><td>Copied in date order, each headed with the original author and time. Internal notes stay internal. Copies are internal by default, so customers aren't emailed again; you can keep public comments public instead.</td></tr>
+            <tr><td>Attachments</td><td>Copied, up to 100 MB each. Larger files are listed as a warning before you merge.</td></tr>
+            <tr><td>Requester and participants</td><td>Added as participants, so they keep getting updates. You're warned first if the requests come from different people.</td></tr>
+            <tr><td>Organizations</td><td>Customer organizations on the duplicate are added to the request you keep.</td></tr>
+            <tr><td>Watchers</td><td>Added as watchers.</td></tr>
+            <tr><td>Other issue links</td><td>Copied, skipping any the request already has.</td></tr>
+          </tbody>
+        </table>
+        <p>The duplicate itself is then linked to the request you keep (“duplicates”), labelled <code>merged</code>, given a short public note pointing to the right request, and resolved as <strong>Duplicate</strong>. Nothing is ever deleted.</p>
+        <h3 id="fields">Fields that differ</h3>
+        <p>When a duplicate has a different priority, assignee or due date, the review step asks which value the request you keep should have. It keeps its own values unless you pick another. An empty value on a duplicate never replaces one on the request you keep.</p>
+      </section>
+
+      <section id="quiet-close">
+        <h2>Quiet close</h2>
+        <p>Normally, resolving a request emails the customer that it was resolved, often with a satisfaction survey. For a duplicate, that email is confusing: their problem isn't solved, it has just moved.</p>
+        <p>Jira Service Management decides whether to send these emails a minute or two after the change, and skips requests that have no request type. So MergeDesk closes duplicates like this:</p>
+        <div class="timeline-h">
+          <div><b>Straight away</b><span>Removes the request type, resolves the duplicate and adds the portal note.</span></div>
+          <div><b>1–2 minutes later</b><span>Jira checks for emails and finds a request without a type, so it sends nothing.</span></div>
+          <div><b>5 minutes later</b><span>MergeDesk puts the request type back, so the request looks exactly as before on the portal.</span></div>
+        </div>
+        <p>The customer can still open the duplicate on the portal and sees the note telling them where the conversation continues.</p>
+        <div class="callout"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#info"/></svg><p>Prefer the usual emails? Set <strong>Close merged duplicates</strong> to <strong>Normally</strong> in the settings. If a request type couldn't be put back (for example because Jira was briefly unavailable), MergeDesk retries every 5 minutes until it succeeds.</p></div>
+      </section>
+
+      <section id="forwarding">
+        <h2>Reply forwarding</h2>
+        <p>Customers often reply to an old email thread, or comment on the duplicate in the portal. MergeDesk copies anything added to a merged request into the request you kept, usually within seconds, headed with who wrote it and where.</p>
+        <p>Forwarded replies are internal notes by default. Forwarding them publicly would email the customer their own words back, so only change this if your team needs it.</p>
+      </section>
+
+      <section id="undo">
+        <h2>Undo</h2>
+        <p>Every merge can be undone for <strong>7 days</strong> by default. A Jira admin can choose anything from 1 to 30 days.</p>
+        <p>Click <strong>Undo merge</strong> in the Merge duplicates window or the Duplicates panel. MergeDesk then:</p>
+        <ul>
+          <li>removes the comments, files, links, labels, participants, organizations and watchers the merge added;</li>
+          <li>puts back any priority, assignee or due date the merge changed, unless someone has changed it since;</li>
+          <li>reopens the duplicates, quietly so customers aren't emailed, to the status they had before. If your workflow has no way back to that exact status, they reopen to the nearest open one;</li>
+          <li>records the undo in the <a href="#history">history</a>.</li>
+        </ul>
+        <p>After the undo window ends, MergeDesk deletes the details it needed for undo, and the merge can no longer be undone.</p>
+      </section>
+
+      <section id="guard">
+        <h2>Duplicate guard</h2>
+        <p>The guard checks each new request in your enabled projects against the same person's recent requests (as requester or participant), and against any request keys mentioned in the email. For each rule, admins choose <strong>Merge automatically</strong>, <strong>Suggest to agents</strong> or <strong>Off</strong>.</p>
+        <table>
+          <thead><tr><th>Rule</th><th>What it catches</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Ticket key in the subject</td><td>The subject mentions an existing request's key, in any letter case: “re: sup-12 still broken”.</td><td>Merge automatically</td></tr>
+            <tr><td>Reply to a resolved request</td><td>A reply such as “Thanks!” to a request resolved in the last 30 days.</td><td>Merge automatically</td></tr>
+            <tr><td>Same person, same subject</td><td>A new request with the same cleaned-up subject as one of their open requests from the last 72 hours.</td><td>Suggest to agents</td></tr>
+            <tr><td>Out-of-office and bounces</td><td>Automatic replies and delivery failures.</td><td>Close quietly</td></tr>
+          </tbody>
+        </table>
+        <h3>Built-in safety rules</h3>
+        <ul>
+          <li><strong>A matching subject alone never merges automatically.</strong> Only a reply in the same email thread (“RE: …” with the same subject) counts as strong enough evidence.</li>
+          <li>If the two emails mention different order, invoice or ticket numbers, the guard only suggests.</li>
+          <li>Generic subjects like “Help” or “Question” are never matched.</li>
+          <li>When a request is merged into one that was itself merged, the guard follows the chain to the request that's still open.</li>
+        </ul>
+        <p>Suggestions appear in the request's Duplicates panel and at the top of the Merge duplicates window.</p>
+      </section>
+
+      <section id="settings">
+        <h2>Settings</h2>
+        <p>Jira admins open the settings from <strong>Settings (⚙) → Marketplace apps</strong>, then <strong>MergeDesk</strong> in the left-hand menu. On older sites the menu item is called <strong>Apps</strong>.</p>
+        <table>
+          <thead><tr><th>Setting</th><th>What it does</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Close merged duplicates</td><td>Quietly (no “resolved” email or survey) or normally.</td><td>Quietly</td></tr>
+            <tr><td>Copy comments</td><td>As internal notes, or keep each comment public or internal as it was.</td><td>Internal notes</td></tr>
+            <tr><td>Copy attachments, participants, organizations, watchers, links</td><td>Switch each part of the merge on or off.</td><td>All on</td></tr>
+            <tr><td>Warn about different people</td><td>Warn before merging requests from different customers.</td><td>On</td></tr>
+            <tr><td>Label</td><td>Label added to merged duplicates, handy for leaving them out of reports.</td><td><code>merged</code></td></tr>
+            <tr><td>Resolution</td><td>Resolution used when closing duplicates.</td><td>Duplicate</td></tr>
+            <tr><td>Undo window</td><td>How many days a merge can be undone (1 to 30).</td><td>7 days</td></tr>
+            <tr><td>Forward later replies</td><td>Copy replies on merged requests to the kept request, as internal notes or as they were.</td><td>On, internal</td></tr>
+            <tr><td>Note on each duplicate</td><td>A public note on the duplicate that points to the kept request. <code>{target}</code> becomes its key.</td><td>On</td></tr>
+            <tr><td>Note on the kept request</td><td>An optional public note telling the customer their requests were combined. <code>{sources}</code> becomes the merged keys.</td><td>Off</td></tr>
+            <tr><td>Duplicate guard rules</td><td>The action for each <a href="#guard">rule</a>, plus how far back to look.</td><td>See above</td></tr>
+            <tr><td>Projects</td><td>Limit MergeDesk to some project keys. Empty means every service project.</td><td>All</td></tr>
+            <tr><td>Who can merge</td><td>Limit merging and undo to members of some groups. Jira admins can always merge. Empty means anyone who can edit and transition the requests.</td><td>Anyone</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="history">
+        <h2>History and CSV export</h2>
+        <p>The <strong>History</strong> tab lists every merge from the last 90 days: when it happened, whether an agent or the guard started it (and why), which requests were involved, and the result. Click <strong>Export as CSV</strong> to copy the history into a spreadsheet.</p>
+      </section>
+
+      <section id="permissions">
+        <h2>Permissions</h2>
+        <ul>
+          <li><strong>Merging and undoing:</strong> anyone who can browse, edit and transition every request involved. MergeDesk checks this before each merge and each undo, so it never lets someone do more than Jira already allows them.</li>
+          <li><strong>Limiting it further:</strong> admins can allow only members of some groups to merge, in <a href="#settings">Who can merge</a>. Others still see suggestions but can't merge or undo.</li>
+          <li><strong>Settings and history:</strong> Jira admins only.</li>
+          <li><strong>Automatic merges</strong> by the duplicate guard run as the app, and only on new requests in enabled service projects.</li>
+        </ul>
+        <h3>What the app can access</h3>
+        <table>
+          <thead><tr><th>Permission</th><th>Why MergeDesk needs it</th></tr></thead>
+          <tbody>
+            <tr><td>Read and write Jira work</td><td>Reads the requests being merged and writes the merge: comments, files, links, labels, status and the request type during a quiet close.</td></tr>
+            <tr><td>Read Jira users</td><td>Shows who wrote each copied comment, checks people's permissions before a merge, and checks group membership when merging is limited to some groups.</td></tr>
+            <tr><td>Read and write service requests</td><td>Reads and adds request participants.</td></tr>
+            <tr><td>App storage</td><td>Keeps settings, merge records for undo, and the history.</td></tr>
+            <tr><td>Personal data reporting</td><td>Reports stored account ids to Atlassian weekly, as Forge requires.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="limits">
+        <h2>Limits</h2>
+        <ul>
+          <li>Up to <strong>20 requests</strong> can be merged into one request at a time.</li>
+          <li>Attachments over <strong>100 MB</strong> aren't copied. MergeDesk warns you before the merge.</li>
+          <li>The history keeps <strong>90 days</strong>; undo details are kept for your undo window.</li>
+        </ul>
+      </section>
+
+      <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <h3>I can't see Merge duplicates</h3>
+        <p>Check that the project is a service project and isn't excluded in the <a href="#settings">Projects</a> setting, and that you can edit and transition the request.</p>
+        <h3>The window says the licence isn't active</h3>
+        <p>The trial or subscription has ended. A Jira admin can renew MergeDesk under <strong>Manage apps</strong>.</p>
+        <h3>A customer still got a “resolved” email</h3>
+        <p>Check that <strong>Close merged duplicates</strong> is set to <strong>Quietly</strong>. Automation rules in your project that send their own emails on resolve aren't affected by MergeDesk; add a condition to skip requests with the <code>merged</code> label.</p>
+        <h3>A merge says “Finished with problems”</h3>
+        <p>Something couldn't be copied, often a file over the size limit or a request someone changed during the merge. The message lists what was skipped. You can undo and merge again.</p>
+        <p>Still stuck? <a href="/support/">Contact support</a>.</p>
+      </section>
+
+      <section id="uninstall">
+        <h2>Uninstalling</h2>
+        <p>Uninstalling MergeDesk leaves your requests exactly as they are: merged comments, files and links stay. Atlassian deletes MergeDesk's stored settings, merge records and history under its <a href="https://developer.atlassian.com/platform/forge/storage/" rel="noopener">Forge data retention policy</a>.</p>
+      </section>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="30" height="30">MergeDesk</a>
+        <p>Merge duplicate requests in Jira Service Management. Made by Findigo.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#security">Security</a></li>
+          <li><a href="https://marketplace.atlassian.com/search?query=MergeDesk">Atlassian Marketplace</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/docs/#getting-started">Getting started</a></li>
+          <li><a href="/support/">Support</a></li>
+          <li><a href="mailto:support@findigo.in">support@findigo.in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy policy</a></li>
+          <li><a href="https://www.atlassian.com/licensing/marketplace/termsofuse" rel="noopener">End user terms</a></li>
+          <li><a href="/support/#security">Report a security issue</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© <span data-year>2026</span> Sarkhail Niyazi, trading as Findigo</span>
+      <span>Jira and Jira Service Management are trademarks of Atlassian. MergeDesk is not made or endorsed by Atlassian.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

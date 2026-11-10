@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MergeDesk: merge duplicate requests in Jira Service Management</title>
+  <meta name="description" content="Merge duplicate Jira Service Management requests in one click. MergeDesk moves comments, files and people into one request, closes duplicates without confusing customer emails, and catches email duplicates as they arrive.">
+  <link rel="canonical" href="https://mergedesk.findigo.in/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MergeDesk: merge duplicate requests in Jira Service Management">
+  <meta property="og:description" content="One request, one conversation. Merge duplicates, close them without confusing emails, and undo any merge.">
+  <meta property="og:url" content="https://mergedesk.findigo.in/">
+  <meta property="og:image" content="https://mergedesk.findigo.in/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#090b12">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/logo-180.png">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script>try{var t=localStorage.getItem('md-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script defer src="/assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="30" height="30">MergeDesk</a>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="/docs/">Docs</a>
+      <a href="/support/">Support</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark"><svg class="icon moon" aria-hidden="true"><use href="/assets/icons.svg#moon"/></svg><svg class="icon sun" aria-hidden="true"><use href="/assets/icons.svg#sun"/></svg></button>
+      <a class="btn btn-primary btn-sm" href="https://marketplace.atlassian.com/search?query=MergeDesk">Get MergeDesk</a>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span>For Jira Service Management Cloud · Runs on Atlassian</span>
+        <h1>Merge duplicate requests.<br><span class="grad-text">Keep one conversation.</span></h1>
+        <p class="lead">Jira Service Management can't merge requests. MergeDesk can. It moves every comment, file and person into one request, closes the duplicates without confusing customer emails, and catches email duplicates the moment they arrive.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://marketplace.atlassian.com/search?query=MergeDesk">Try it free <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <ul class="checks">
+          <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Free for up to 10 users</li>
+          <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>30-day free trial</li>
+          <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Undo any merge</li>
+        </ul>
+      </div>
+
+      <div class="stage" aria-label="Example: the Merge duplicates window in Jira">
+        <div class="window">
+          <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>SUP-12 · Printer on floor 3 is jammed</span></div>
+          <div class="dialog">
+            <h4>Merge duplicates</h4>
+            <p class="intro">Pick requests to merge into SUP-12. Their comments, files and people are copied here, and you can undo this.</p>
+            <div class="group-title">Likely duplicates</div>
+            <div class="row on"><span class="cb"></span><span class="key">SUP-14</span><span class="summary">RE: Printer on floor 3 is jammed</span><span class="note">Reply from another address</span></div>
+            <div class="row on"><span class="cb"></span><span class="key">SUP-15</span><span class="summary">re: sup-12 still jammed</span><span class="note">Mentions SUP-12</span></div>
+            <div class="group-title">Other open requests from this customer</div>
+            <div class="row"><span class="cb"></span><span class="key">SUP-9</span><span class="summary">Laptop can't connect to the VPN</span></div>
+            <div class="review">
+              <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#info"/></svg>
+              <div><strong>Ready to merge</strong><span>SUP-14, SUP-15 into SUP-12: 5 comments, 2 files, 1 new participant.</span></div>
+            </div>
+            <div class="dialog-actions"><span class="mini-btn primary">Merge 2 requests</span><span class="mini-btn">Cancel</span></div>
+          </div>
+        </div>
+        <div class="toast toast-2" aria-hidden="true">
+          <span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#radar"/></svg></span>
+          <div><strong>Duplicate caught</strong><span>SUP-16 is a reply to SUP-12</span></div>
+        </div>
+        <div class="toast toast-1" aria-hidden="true">
+          <span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span>
+          <div><strong>Merged into SUP-12</strong><span>No “resolved” email or survey sent</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="band">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">The problem</span>
+        <h2>Duplicates pile up. Jira can only link them.</h2>
+        <p>Linking leaves two conversations, two SLAs and customers replying in the wrong place. Merging requests is one of the most-voted Jira Service Management suggestions.</p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b class="grad-text">1,200+</b><p>votes on Atlassian's <a href="https://jira.atlassian.com/browse/JSDCLOUD-4685" rel="noopener">request to merge service requests</a>.</p></div>
+        <div class="stat"><b class="grad-text">Since 2017</b><p>it has been waiting, still without a merge for service desks.</p></div>
+        <div class="stat"><b class="grad-text">Mostly email</b><p>Replies from another address, lowercase ticket keys and auto-replies all become new requests.</p></div>
+      </div>
+
+      <div class="sources reveal">
+        <div class="source">
+          <div class="mail">From: anna@team.example</div>
+          <h3>A reply from another address</h3>
+          <p>Jira can't match the sender, so the reply opens a new request.</p>
+          <span class="fix"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg>Merged automatically</span>
+        </div>
+        <div class="source">
+          <div class="mail">Subject: re: sup-12 still jammed</div>
+          <h3>Ticket keys in lower case</h3>
+          <p>Jira only spots a ticket key typed exactly. MergeDesk reads it in any case.</p>
+          <span class="fix"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg>Merged automatically</span>
+        </div>
+        <div class="source">
+          <div class="mail">Subject: Thanks!</div>
+          <h3>“Thanks” on a resolved request</h3>
+          <p>A one-word reply to a closed request starts a whole new one.</p>
+          <span class="fix"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg>Merged automatically</span>
+        </div>
+        <div class="source">
+          <div class="mail">Subject: Out of office until Monday</div>
+          <h3>Out-of-office and bounces</h3>
+          <p>Auto-replies become requests nobody needs to work on.</p>
+          <span class="fix"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Closed quietly</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Features</span>
+        <h2>Everything a real merge needs</h2>
+        <p>Built around what service teams ask for in Atlassian's community: one thread, nobody left out, and no confusing emails.</p>
+      </div>
+
+      <div class="bento">
+        <div class="card feature-main reveal" style="grid-column: 1 / -1">
+          <div>
+            <div class="ic"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg></div>
+            <h3>A full merge, not just a link</h3>
+            <p>Pick the duplicates, check the summary, merge. MergeDesk copies everything into the request you keep:</p>
+            <ul class="ticklist">
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Every comment in date order, labelled with who wrote it and when</li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Internal notes stay internal</li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Attachments up to 100 MB each</li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Requesters, participants and organizations, so nobody drops off the thread</li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>You pick which priority, assignee and due date to keep</li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Watchers and other issue links</li>
+            </ul>
+          </div>
+          <div class="timeline" aria-label="Example: the kept request after a merge">
+            <div class="tl-item"><span class="avatar av-1">AS</span><div><div class="who">Anna Smith</div><div class="meta">Original request · 3 Nov, 09:12</div>The printer on floor 3 shows error E-27.</div></div>
+            <div class="tl-item"><span class="avatar av-2">BO</span><div><div class="who">Ben Ortiz <span class="lozenge lz-purple">From SUP-14</span></div><div class="meta">3 Nov, 09:40</div>Same here, it's jammed again on the second tray.</div></div>
+            <div class="tl-item"><span class="avatar av-3">KL</span><div><div class="who">Kim Lee <span class="lozenge lz-amber">Internal note</span></div><div class="meta">From SUP-15 · 3 Nov, 10:05</div>Ordered a new fuser unit, arriving Thursday.</div></div>
+          </div>
+        </div>
+
+        <div class="card span-3 reveal">
+          <div class="ic rose"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#mail-off"/></svg></div>
+          <h3>Quiet close: no confusing emails</h3>
+          <p>A closed duplicate normally emails the customer “Resolved” plus a satisfaction survey. MergeDesk closes duplicates quietly and leaves a note on the portal pointing to the right request.</p>
+          <div class="inbox">
+            <div class="mail-row struck"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg><span class="subj">SUP-14 was resolved as Duplicate</span><span class="lozenge lz-rose">Not sent</span></div>
+            <div class="mail-row struck"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg><span class="subj">How did we do? Rate your experience</span><span class="lozenge lz-rose">Not sent</span></div>
+            <div class="mail-row"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg><span class="subj">Portal note: “Combined with SUP-12”</span><span class="lozenge lz-green">Shown</span></div>
+          </div>
+        </div>
+
+        <div class="card span-3 reveal">
+          <div class="ic teal"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#radar"/></svg></div>
+          <h3>Duplicate guard for new requests</h3>
+          <p>Checks each new request against the same person's recent ones. For every rule, choose: merge automatically, suggest to agents, or off. A matching subject alone never triggers a merge.</p>
+          <div class="rules">
+            <div class="rule"><span>Ticket key in the subject, any case</span><span class="lozenge lz-green">Merge</span></div>
+            <div class="rule"><span>Reply to a recently resolved request</span><span class="lozenge lz-green">Merge</span></div>
+            <div class="rule"><span>Same person, same subject, still open</span><span class="lozenge lz-purple">Suggest</span></div>
+            <div class="rule"><span>Out-of-office and bounces</span><span class="lozenge lz-grey">Close quietly</span></div>
+          </div>
+        </div>
+
+        <div class="card span-2 reveal">
+          <div class="ic"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#forward"/></svg></div>
+          <h3>Replies find their way</h3>
+          <p>Customers keep replying to old email threads. Anything added to a merged request is copied to the one you kept.</p>
+        </div>
+        <div class="card span-2 reveal">
+          <div class="ic amber"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#undo"/></svg></div>
+          <h3>Undo for up to 30 days</h3>
+          <p>Merged the wrong one? Undo removes everything the merge added and reopens the duplicates, again without emails.</p>
+        </div>
+        <div class="card span-2 reveal">
+          <div class="ic green"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#history"/></svg></div>
+          <h3>History and CSV export</h3>
+          <p>Every merge is logged with what moved and why. A “merged” label keeps duplicates out of your reports.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="band">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">How it works</span>
+        <h2>From duplicate to done in three clicks</h2>
+        <p>No setup needed: MergeDesk works in every service project as soon as it's installed.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><h3>Open the request you want to keep</h3><p>Choose <strong>Merge duplicates</strong> from its ••• menu, or click <strong>Merge</strong> in the Duplicates panel when MergeDesk spots one for you.</p></div>
+        <div class="step"><h3>Pick and review</h3><p>Tick the suggested duplicates or search by key or words. MergeDesk shows exactly what will move and warns about anything unusual.</p></div>
+        <div class="step"><h3>Merge</h3><p>It runs in the background, even for big requests. The duplicates close quietly, linked to the request you kept.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compare -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Why not just link them?</span>
+        <h2>Linking isn't merging</h2>
+        <p>Jira's “duplicates” link records that two requests are the same. It doesn't bring them together.</p>
+      </div>
+      <div class="table-wrap reveal">
+        <table class="compare">
+          <thead><tr><th scope="col"><span class="sr-only">What you need</span></th><th scope="col">Link as duplicate</th><th scope="col" class="us">MergeDesk</th></tr></thead>
+          <tbody>
+            <tr><td>The whole conversation in one place</td><td><span class="no"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg>Split across requests</span></td><td class="us"><span class="yes"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Every comment, note and file together</span></td></tr>
+            <tr><td>Everyone stays on the thread</td><td><span class="no"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg>People on the duplicate are left out</span></td><td class="us"><span class="yes"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Requesters and participants added</span></td></tr>
+            <tr><td>Closing the duplicate</td><td><span class="no"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg>“Resolved” email and survey</span></td><td class="us"><span class="yes"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Closed quietly, with a portal note</span></td></tr>
+            <tr><td>Later replies to the duplicate</td><td><span class="no"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg>Land on a closed request</span></td><td class="us"><span class="yes"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Forwarded to the request you kept</span></td></tr>
+            <tr><td>New email duplicates</td><td><span class="no"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg>Found by hand, if at all</span></td><td class="us"><span class="yes"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Merged or suggested as they arrive</span></td></tr>
+            <tr><td>Changing your mind</td><td><span class="no"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg>Tidy up by hand</span></td><td class="us"><span class="yes"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>One-click undo, up to 30 days</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="band">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Pricing</span>
+        <h2>Simple pricing, on your Atlassian bill</h2>
+        <p>Free for small teams. Above 10 users it's $1 per user per month, and less as you grow. Every plan starts with a 30-day free trial.</p>
+      </div>
+      <div class="pricing reveal">
+        <div class="calc" data-calc>
+          <label for="users">How many Jira users does your site have?</label>
+          <div class="calc-users">
+            <input id="users" type="number" min="1" max="10000" value="50" inputmode="numeric">
+            <span>users</span>
+          </div>
+          <input type="range" min="0" max="1000" value="425" aria-label="Number of users">
+          <div class="billing" role="group" aria-label="Billing">
+            <button type="button" data-billing="monthly" aria-pressed="true">Monthly</button>
+            <button type="button" data-billing="annual" aria-pressed="false">Yearly <span class="save">2 months free</span></button>
+          </div>
+          <div class="price-out" aria-live="polite"><span class="amount" data-amount>$50</span><span class="per" data-per>per month</span></div>
+          <p class="price-sub" data-sub>For 50 users: about $1 per user each month.</p>
+          <div class="cta-row" style="margin:24px 0 0"><a class="btn btn-primary" href="https://marketplace.atlassian.com/search?query=MergeDesk">Start a free trial</a></div>
+          <p class="price-note">An estimate. Atlassian bills Marketplace apps on the highest user count among your site's Jira apps (portal customers don't count), and shows the exact price before you buy.</p>
+        </div>
+        <div class="tiers">
+          <h3>Price per user, per month</h3>
+          <table>
+            <tbody>
+              <tr data-tier="0"><td>1–10 users</td><td class="free">Free</td></tr>
+              <tr data-tier="1"><td>11–100 users</td><td>$1.00</td></tr>
+              <tr data-tier="2"><td>101–250 users</td><td>$0.70</td></tr>
+              <tr data-tier="3"><td>251–1,000 users</td><td>$0.35</td></tr>
+              <tr data-tier="4"><td>1,001–2,500 users</td><td>$0.15</td></tr>
+              <tr data-tier="5"><td>2,501–5,000 users</td><td>$0.08</td></tr>
+              <tr data-tier="6"><td>5,001+ users</td><td>$0.05</td></tr>
+            </tbody>
+          </table>
+          <p>Above 10 users, every user up to 100 is billed at $1.00, and each later band at its own rate. A yearly plan costs 10 times the monthly price.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security -->
+  <section id="security">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Security and privacy</span>
+        <h2>Your data never leaves Atlassian</h2>
+        <p>MergeDesk runs on Atlassian's Forge platform. There's no MergeDesk server, so there's nothing of yours for us to see.</p>
+      </div>
+      <div class="trust reveal">
+        <div class="card"><div class="ic teal"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#cloud"/></svg></div><h3>Runs on Atlassian</h3><p>Built on Forge, with no outside servers or connections.</p></div>
+        <div class="card"><div class="ic"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#eye-off"/></svg></div><h3>No request content stored</h3><p>Comments and files only move between your own requests. MergeDesk keeps request keys, ids and settings.</p></div>
+        <div class="card"><div class="ic amber"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#users"/></svg></div><h3>Minimal personal data</h3><p>Only Atlassian account ids, kept for the undo window and then removed.</p></div>
+        <div class="card"><div class="ic green"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg></div><h3>Your permissions apply</h3><p>People can only merge requests they can already edit and close, and you can limit merging to chosen groups.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="band">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">FAQ</span>
+        <h2>Questions, answered</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>Does the customer get an email when a duplicate is closed?</summary>
+          <p>Not with the default quiet close. MergeDesk briefly removes the duplicate's request type, which stops Jira Service Management sending the “resolved” email and satisfaction survey, then puts it back 5 minutes later. The customer still sees the request and a note on the portal. If you prefer the usual emails, switch to normal close in the settings.</p>
+        </details>
+        <details>
+          <summary>What happens to replies sent to a merged request?</summary>
+          <p>They're copied to the request you kept, as internal notes by default, so the customer isn't emailed their own words back.</p>
+        </details>
+        <details>
+          <summary>Can I undo a merge?</summary>
+          <p>Yes, for 7 days by default; your Jira admin can choose anything from 1 to 30. Undo deletes what the merge added, puts back any fields it changed and reopens the duplicates, without emailing the customer.</p>
+        </details>
+        <details>
+          <summary>Will it merge requests just because the subjects match?</summary>
+          <p>No. A matching subject alone only ever suggests a merge to an agent. Automatic merges need stronger evidence, such as the request's key in the subject or a reply in the same email thread. If the emails mention different order or ticket numbers, MergeDesk only suggests.</p>
+        </details>
+        <details>
+          <summary>Who can merge requests?</summary>
+          <p>Anyone who can edit and close both requests in Jira, checked before every merge and every undo. Admins can also limit merging to members of chosen groups.</p>
+        </details>
+        <details>
+          <summary>Does it use AI?</summary>
+          <p>No. Duplicates are found with clear rules you can see and change, so you always know why a request was flagged.</p>
+        </details>
+        <details>
+          <summary>Which plans does it work with?</summary>
+          <p>Every Jira Service Management Cloud plan, including Free. Sites with up to 10 users don't pay for MergeDesk, and everyone else gets a 30-day free trial.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Give every customer one conversation</h2>
+        <p>Install MergeDesk from the Atlassian Marketplace. It's free for 30 days, and free for good on sites with up to 10 users.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://marketplace.atlassian.com/search?query=MergeDesk">Get MergeDesk <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+          <a class="btn btn-ghost" href="/docs/">Read the docs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="30" height="30">MergeDesk</a>
+        <p>Merge duplicate requests in Jira Service Management. Made by Findigo.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#security">Security</a></li>
+          <li><a href="https://marketplace.atlassian.com/search?query=MergeDesk">Atlassian Marketplace</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/docs/#getting-started">Getting started</a></li>
+          <li><a href="/support/">Support</a></li>
+          <li><a href="mailto:support@findigo.in">support@findigo.in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy policy</a></li>
+          <li><a href="https://www.atlassian.com/licensing/marketplace/termsofuse" rel="noopener">End user terms</a></li>
+          <li><a href="/support/#security">Report a security issue</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© <span data-year>2026</span> Sarkhail Niyazi, trading as Findigo</span>
+      <span>Jira and Jira Service Management are trademarks of Atlassian. MergeDesk is not made or endorsed by Atlassian.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
