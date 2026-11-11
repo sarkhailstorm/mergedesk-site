@@ -1443,7 +1443,9 @@ input[type="range"] {
   overflow-y: auto;
   padding-right: 6px;
 }
+/* A block so the icon is positioned against the 40px box, not a line of text. */
 .doc-nav .search {
+  display: block;
   position: relative;
   margin-bottom: 18px;
 }
@@ -1461,10 +1463,12 @@ input[type="range"] {
 .doc-nav .search .icon {
   position: absolute;
   left: 11px;
-  top: 11px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 18px;
   height: 18px;
   color: var(--muted);
+  pointer-events: none;
 }
 .doc-nav h5 {
   font-size: 0.74rem;
