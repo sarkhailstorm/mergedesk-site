@@ -18,6 +18,26 @@
   <link rel="stylesheet" href="/assets/style.css?v=2">
   <script>try{var t=localStorage.getItem('md-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
   <script defer src="/assets/site.js?v=2"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MergeDesk - Merge Duplicates for Jira Service Management",
+    "description": "Merge duplicate Jira Service Management requests: comments, files and people move into one request, duplicates close without confusing customer emails, email duplicates are caught as they arrive, and any merge can be undone.",
+    "url": "https://mergedesk.findigo.in/",
+    "image": "https://mergedesk.findigo.in/assets/og.png",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Jira Service Management Cloud",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free for up to 10 users, then from $1.00 per user per month, with a 30-day free trial",
+      "url": "https://marketplace.atlassian.com/apps/1372531683"
+    },
+    "publisher": { "@type": "Organization", "name": "Findigo", "email": "support@findigo.in" }
+  }
+  </script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -316,6 +336,10 @@
       </div>
       <div class="faq reveal">
         <details>
+          <summary>Can't Jira Service Management merge requests on its own?</summary>
+          <p>No. It can link two requests as duplicates and close one, but the comments, files and people stay split between them. Atlassian's request to add merging has been open since 2017. Read <a href="/guides/merge-duplicate-requests/">how to merge duplicate requests in Jira Service Management</a>, with and without an app.</p>
+        </details>
+        <details>
           <summary>Does the customer get an email when a duplicate is closed?</summary>
           <p>Not with the default quiet close. MergeDesk briefly removes the duplicate's request type, which stops Jira Service Management sending the “resolved” email and satisfaction survey, then puts it back 5 minutes later. The customer still sees the request and a note on the portal. If you prefer the usual emails, switch to normal close in the settings.</p>
         </details>
@@ -383,6 +407,7 @@
         <ul>
           <li><a href="/docs/">Documentation</a></li>
           <li><a href="/docs/#getting-started">Getting started</a></li>
+          <li><a href="/guides/merge-duplicate-requests/">How to merge duplicate requests</a></li>
           <li><a href="/support/">Support</a></li>
           <li><a href="mailto:support@findigo.in">support@findigo.in</a></li>
         </ul>

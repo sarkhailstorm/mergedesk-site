@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to merge duplicate requests in Jira Service Management</title>
+  <meta name="description" content="Jira Service Management can't merge requests or tickets, only link them. How to merge duplicates by hand, what gets lost, and how to merge them properly in one step.">
+  <link rel="canonical" href="https://mergedesk.findigo.in/guides/merge-duplicate-requests/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to merge duplicate requests in Jira Service Management">
+  <meta property="og:description" content="Jira Service Management can only link duplicate requests. Here's how to merge them, by hand or in one step.">
+  <meta property="og:url" content="https://mergedesk.findigo.in/guides/merge-duplicate-requests/">
+  <meta property="og:image" content="https://mergedesk.findigo.in/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#090b12">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/logo-180.png">
+  <link rel="stylesheet" href="/assets/style.css?v=2">
+  <script>try{var t=localStorage.getItem('md-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script defer src="/assets/site.js?v=2"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to merge duplicate requests in Jira Service Management",
+    "description": "Jira Service Management can't merge requests or tickets, only link them. How to merge duplicates by hand, what gets lost, and how to merge them properly in one step.",
+    "image": "https://mergedesk.findigo.in/assets/og.png",
+    "datePublished": "2026-11-23",
+    "dateModified": "2026-11-23",
+    "mainEntityOfPage": "https://mergedesk.findigo.in/guides/merge-duplicate-requests/",
+    "author": { "@type": "Organization", "name": "Findigo", "url": "https://mergedesk.findigo.in/" },
+    "publisher": { "@type": "Organization", "name": "Findigo", "url": "https://mergedesk.findigo.in/" }
+  }
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="30" height="30">MergeDesk</a>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/docs/">Docs</a>
+      <a href="/support/">Support</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark"><svg class="icon moon" aria-hidden="true"><use href="/assets/icons.svg#moon"/></svg><svg class="icon sun" aria-hidden="true"><use href="/assets/icons.svg#sun"/></svg></button>
+      <a class="btn btn-primary btn-sm" href="https://marketplace.atlassian.com/apps/1372531683">Get MergeDesk</a>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumbs"><a href="/">MergeDesk</a> / Guides</div>
+      <h1>How to merge duplicate requests in Jira Service Management</h1>
+      <p>Jira Service Management can link duplicate requests, but it can't merge them. Here's what that means for your team and your customers, how to merge duplicates by hand, and how to do it properly in one step.</p>
+    </div>
+  </div>
+
+  <div class="container doc-layout">
+    <aside class="doc-nav" aria-label="On this page">
+      <h5>On this page</h5>
+      <ul>
+        <li><a href="#short-answer">The short answer</a></li>
+        <li><a href="#why">Why duplicates happen</a></li>
+        <li><a href="#by-hand">Merging by hand</a></li>
+        <li><a href="#one-step">Merging in one step</a></li>
+        <li><a href="#prevent">Stopping email duplicates</a></li>
+        <li><a href="#questions">Questions</a></li>
+      </ul>
+    </aside>
+
+    <article class="prose">
+      <section id="short-answer">
+        <h2>The short answer</h2>
+        <ul>
+          <li><strong>There's no merge in Jira Service Management.</strong> You can link one request to another as a duplicate and close it, but its comments, attachments and people stay where they were.</li>
+          <li><strong>Closing a duplicate usually emails the customer.</strong> They get a “resolved” notification, and a satisfaction survey if your project sends one, even though their problem isn't solved yet.</li>
+          <li>Atlassian's suggestion to add merging, <a href="https://jira.atlassian.com/browse/JSDCLOUD-4685" rel="noopener">JSDCLOUD-4685</a>, has been open since 2017 and has more than 1,200 votes.</li>
+          <li>To really merge, you either copy everything across by hand or use an app such as <a href="/">MergeDesk</a>.</li>
+        </ul>
+      </section>
+
+      <section id="why">
+        <h2>Why duplicates happen</h2>
+        <p>Most duplicate tickets come in by email. Jira Service Management adds an email to an existing request only when it can match it, so small differences create a new request instead:</p>
+        <table>
+          <thead><tr><th>What the customer did</th><th>What Jira does</th></tr></thead>
+          <tbody>
+            <tr><td>Replied from another address, or a colleague replied</td><td>Can't match the sender, so it opens a new request.</td></tr>
+            <tr><td>Typed the ticket key in lower case, like “re: sup-12 still broken”</td><td>Doesn't spot the key, so it opens a new request.</td></tr>
+            <tr><td>Said “Thanks!” after the request was resolved</td><td>Starts a whole new request for a one-word reply.</td></tr>
+            <tr><td>Emailed again because nobody answered yet</td><td>Opens a second request about the same problem.</td></tr>
+            <tr><td>Had an out-of-office reply switched on</td><td>Turns the automatic reply into a request nobody needs.</td></tr>
+          </tbody>
+        </table>
+        <p>Each duplicate splits the conversation: two agents may answer the same problem, SLAs run twice, and the customer replies in whichever thread they see first.</p>
+      </section>
+
+      <section id="by-hand">
+        <h2>Merging by hand, without an app</h2>
+        <p>You can get close to a merge with Jira's own tools. Start with the request you want to keep, usually the oldest one or the one with the most detail.</p>
+        <ol class="steps-list">
+          <li><strong>Copy the conversation.</strong> Paste the duplicate's description and any useful comments into the request you keep. Add them as an <strong>internal note</strong> if you don't want to email the customer again.</li>
+          <li><strong>Move the files.</strong> Download the duplicate's attachments and upload them to the request you keep.</li>
+          <li><strong>Keep everyone informed.</strong> Add the duplicate's requester and participants to the <strong>Request participants</strong> field of the request you keep, so they get its updates.</li>
+          <li><strong>Link them.</strong> Link the duplicate to the request you keep with the <strong>duplicates</strong> link type.</li>
+          <li><strong>Tell the customer, then close it.</strong> Add a public comment on the duplicate saying where the conversation continues, then resolve it, with the resolution <strong>Duplicate</strong> if your workflow has one.</li>
+        </ol>
+        <div class="callout warn"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#alert"/></svg><p>Even done carefully, a manual merge has gaps: comments lose their original author and time, the customer usually gets a “resolved” email and survey for the duplicate, and later replies to the old email thread still land on the closed duplicate instead of the request you kept.</p></div>
+        <p>Some teams add a Jira Automation rule that closes a request as soon as it's linked as a duplicate. That saves a click, but the comments, files and people still stay split between the two requests.</p>
+      </section>
+
+      <section id="one-step">
+        <h2>Merging in one step with MergeDesk</h2>
+        <p>MergeDesk is our app for Jira Service Management Cloud that adds a real merge. It works in every service project as soon as it's installed.</p>
+        <ol class="steps-list">
+          <li>Open the request you want to keep and choose <strong>••• → Merge duplicates</strong>.</li>
+          <li>Tick the duplicates. MergeDesk lists the likely duplicates it found and the customer's other open requests, and you can search for any other request by key or words.</li>
+          <li>Click <strong>Review merge</strong> to see exactly how many comments, files and people will move. If the requests have a different priority, assignee or due date, choose which one to keep.</li>
+          <li>Click <strong>Merge</strong>. It runs in the background, even for big requests.</li>
+        </ol>
+        <p>Here's what happens compared with doing it by hand:</p>
+        <table>
+          <thead><tr><th>Part of the merge</th><th>By hand</th><th>MergeDesk</th></tr></thead>
+          <tbody>
+            <tr><td>Comments and internal notes</td><td>Pasted in, without the original author and time</td><td>Copied in date order, each headed with who wrote it and when; internal notes stay internal</td></tr>
+            <tr><td>Attachments</td><td>Downloaded and uploaded again</td><td>Copied automatically, up to 100 MB each</td></tr>
+            <tr><td>Requesters and participants</td><td>Added one by one</td><td>Added for you, along with organizations and watchers</td></tr>
+            <tr><td>Closing the duplicate</td><td>Customer gets a “resolved” email and survey</td><td>Closed quietly, with a portal note pointing to the right request</td></tr>
+            <tr><td>Later replies to the duplicate</td><td>Land on the closed request</td><td>Copied to the request you kept</td></tr>
+            <tr><td>Changing your mind</td><td>Tidy up by hand</td><td>Undo for 7 days by default, up to 30</td></tr>
+          </tbody>
+        </table>
+        <p>The duplicates are linked to the request you kept, labelled <code>merged</code> so you can leave them out of reports, and nothing is ever deleted. The <a href="/docs/#what-moves">documentation</a> explains every step in detail.</p>
+      </section>
+
+      <section id="prevent">
+        <h2>Stopping email duplicates before they pile up</h2>
+        <p>Merging fixes duplicates after the fact. MergeDesk's <strong>duplicate guard</strong> also checks each new request against the same customer's recent ones as it arrives. For each rule, an admin chooses whether it merges automatically, suggests a merge to agents, or does nothing.</p>
+        <ul>
+          <li><strong>Ticket key in the subject, in any letter case:</strong> merged automatically by default.</li>
+          <li><strong>A reply to a request resolved in the last 30 days:</strong> merged automatically by default.</li>
+          <li><strong>Same person, same subject, still open:</strong> suggested to agents by default.</li>
+          <li><strong>Out-of-office replies and bounces:</strong> closed quietly by default.</li>
+        </ul>
+        <div class="callout tip"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#bulb"/></svg><p>A matching subject on its own never triggers an automatic merge, and if two emails mention different order or ticket numbers, MergeDesk only suggests. Suggestions appear in the request's Duplicates panel.</p></div>
+      </section>
+
+      <section id="questions">
+        <h2>Questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Can you merge tickets in Jira Service Management without an app?</summary>
+            <p>Not really. You can link a duplicate to another request and close it, and copy its comments, files and people across by hand, but Jira Service Management has no merge action of its own.</p>
+          </details>
+          <details>
+            <summary>Does closing a duplicate email the customer?</summary>
+            <p>Usually, yes. Resolving a request normally sends the customer a “resolved” notification, plus a satisfaction survey if your project uses one. MergeDesk closes duplicates without those emails and leaves a note on the portal instead.</p>
+          </details>
+          <details>
+            <summary>Can a merge be undone?</summary>
+            <p>With MergeDesk, yes: for 7 days by default, and your Jira admin can choose up to 30. Undo removes what the merge added, puts back any fields it changed and reopens the duplicates, again without emailing the customer.</p>
+          </details>
+          <details>
+            <summary>How much does MergeDesk cost?</summary>
+            <p>It's free for sites with up to 10 users. Above that it's $1 per user per month, and less as you grow. See <a href="/#pricing">pricing</a>. Every plan starts with a 30-day free trial.</p>
+          </details>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <section style="padding-top: 24px;">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Give every customer one conversation</h2>
+        <p>Install MergeDesk from the Atlassian Marketplace. It's free for 30 days, and free for good on sites with up to 10 users.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/1372531683">Get MergeDesk <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+          <a class="btn btn-ghost" href="/docs/">Read the docs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="30" height="30">MergeDesk</a>
+        <p>Merge duplicate requests in Jira Service Management. Made by Findigo.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#security">Security</a></li>
+          <li><a href="https://marketplace.atlassian.com/apps/1372531683">Atlassian Marketplace</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/docs/#getting-started">Getting started</a></li>
+          <li><a href="/guides/merge-duplicate-requests/">How to merge duplicate requests</a></li>
+          <li><a href="/support/">Support</a></li>
+          <li><a href="mailto:support@findigo.in">support@findigo.in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy policy</a></li>
+          <li><a href="https://www.atlassian.com/licensing/marketplace/termsofuse" rel="noopener">End user terms</a></li>
+          <li><a href="/support/#security">Report a security issue</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© <span data-year>2026</span> Sarkhail Niyazi, trading as Findigo</span>
+      <span>Jira and Jira Service Management are trademarks of Atlassian. MergeDesk is not made or endorsed by Atlassian.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
